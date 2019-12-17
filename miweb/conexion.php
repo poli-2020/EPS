@@ -1,8 +1,8 @@
 <?php
  
- $host="localhost";
+ $host="localhost:8082";
  $user="root";
- $pw="";
+ $pw="admin";
  $db="dbepslaravel";
 
 ?>
