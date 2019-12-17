@@ -3,6 +3,7 @@ $usuario=$_POST['usuario'];
 $clave=$_POST['clave'];
 
 //conectar a la base de datos
+//conexion
 
 $conexion=mysqli_connect("localhost","root","","dbepslaravel");
 $consulta="SELECT * FROM usuario WHERE usuario='$usuario' and clave='$clave'";
