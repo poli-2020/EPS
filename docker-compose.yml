@@ -1,0 +1,38 @@
+version: "3"
+ 
+services:
+  miservicio_mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=nombre
+      - MYSQL_ROOT_PASSWORD=claveroot
+      - MYSQL_USER=miusuario
+      - MYSQL_PASSWORD=mipassword
+    volumes:
+      # Montamos un volumen para MySQL para no perder los datos de bd
+      - ./volumenes/mysql:/var/lib/mysql
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+    
+    networks:
+      - default
+   
+  miservicio_apache:
+    image: httpd:2.4
+    volumes:
+      # Montamos nuestra web desde fuera en el directorio web del contenedor
+      - ./miweb/:/usr/local/apache2/htdocs/
+    expose:
+      - 80
+    ports:
+      - 80:80
+    
+
+  miservico_phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+     - 8081:80
+
+   
